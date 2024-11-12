@@ -1,2 +1,8 @@
-bootsector: bootsector.asm
-	nasm bootsector.asm -f bin -o bootsector.bin
+CC = nasm
+FILES := bootsector.bin
+
+bootsector.bin: bootsector.asm
+	$(CC) $^ -f bin -o $@ 
+
+clean:
+	rm -f $(FILES)

@@ -8,8 +8,6 @@ mov sp, bp
 call set_video_mode
 call boot
 
-jmp $
-
 set_video_mode:
   mov al, 0x03
   mov ah, 0x00
@@ -37,7 +35,7 @@ get_char_input:
   jmp get_char_input
 
 message:
-  db "What's up 0xM4t !"
-
+  db "What's up 0xM4t !",0xa,0x00
+  
 times 0x1fe-($-$$) db 0
 dw 0xaa55
